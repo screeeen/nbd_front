@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import AppBar from "@material-ui/core/AppBar";
+import Form from "./Form";
+import { getAllSpots } from "./calls";
 
 function App() {
+  const spots = getAllSpots();
+  // console.log(spots);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {" "}
+      <AppBar color="transparent" position="static">
+        <h1>spots</h1>
+        <Form></Form>
+      </AppBar>
     </div>
   );
 }
