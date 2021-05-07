@@ -35,17 +35,17 @@ export const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(spot);
     addNewSpot(spot);
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(event.target.name);
-    console.log(event.target.value);
-    const newSpot = { ...spot };
+    const item = { [name]: value };
+    const newSpot = { ...spot, ...item };
     console.log(newSpot);
-
     setSpot(newSpot);
+    console.log(spot);
   };
 
   const classes = useStyles();
@@ -81,51 +81,52 @@ export const Form = () => {
           />
         </FormControl>
 
-        {/* <InputLabel id="spotType">type</InputLabel>
-        <Select labelId="spotType" id="select" value="ledge">
-          <MenuItem value="ledge">ledge</MenuItem>
-          <MenuItem value="bank">bank</MenuItem>
-          <MenuItem value="transition">bank</MenuItem>
-          <MenuItem value="handrail">bank</MenuItem>
-          <MenuItem value="stairs">stairs</MenuItem>
-        </Select> */}
-
         <FormControl component="fieldset">
           <FormLabel component="legend">SpotType</FormLabel>
           <RadioGroup
             aria-label="spotType"
-            name="stairs"
-            value={"stairs"}
+            name="spotType"
+            value={spot.spotType || "something weird"}
             onChange={(e) => handleChange(e)}
           >
             <FormControlLabel
-              name="stairs"
+              name="spotType"
               value="stairs"
               control={<Radio />}
               label="stairs"
             />
             <FormControlLabel value="ledge" control={<Radio />} label="ledge" />
             <FormControlLabel
-              name="handrail"
+              name="spotType"
               value="handrail"
               control={<Radio />}
               label="handrail"
             />
             <FormControlLabel value="bank" control={<Radio />} label="bank" />
             <FormControlLabel
-              name="transition"
+              name="spotType"
               value="transition"
               control={<Radio />}
               label="transition"
             />
             <FormControlLabel
-              name="wallride"
+              name="spotType"
               value="wallride"
               control={<Radio />}
               label="wallride"
             />
-            <FormControlLabel value="drop" control={<Radio />} label="drop" />
-            <FormControlLabel value="hubba" control={<Radio />} label="hubba" />
+            <FormControlLabel
+              name={"spotType"}
+              value="drop"
+              control={<Radio />}
+              label="drop"
+            />
+            <FormControlLabel
+              name={"spotType"}
+              value="hubba"
+              control={<Radio />}
+              label="hubba"
+            />
           </RadioGroup>
         </FormControl>
 
@@ -155,7 +156,7 @@ export const Form = () => {
         />
         {/* </form> */}
 
-        <Button variant="contained" color="primary" size="medium">
+        <Button type="submit" variant="contained" color="primary" size="medium">
           Send
         </Button>
       </form>

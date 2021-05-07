@@ -21,7 +21,7 @@ export const getAllSpots = async () => {
 
 export const addNewSpot = async (newSpot) => {
   calls
-    .post(`spots/add-spot`, newSpot)
-    .then((data) => console.log(data))
+    .post(`spots/`, newSpot)
+    .then((data) => console.log("sent", data))
     .catch((err) => console.log(err));
 };
