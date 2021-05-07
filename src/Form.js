@@ -59,23 +59,23 @@ export const Form = () => {
       }}
     >
       <form style={{ width: "80%" }} onSubmit={(e) => handleSubmit(e)}>
-        <h1>new spot</h1>
-
-        <FormControl margin="normal" fullWidth>
-          <InputLabel htmlFor="location">Location</InputLabel>
-          <Input
-            id="location"
-            name="location"
-            type="text"
-            onChange={(e) => handleChange(e)}
-          />
-        </FormControl>
+        <h3>add a new spots</h3>
 
         <FormControl margin="normal" fullWidth>
           <InputLabel htmlFor="name">Name</InputLabel>
           <Input
             id="name"
             name="name"
+            type="text"
+            onChange={(e) => handleChange(e)}
+          />
+        </FormControl>
+
+        <FormControl margin="normal" fullWidth>
+          <InputLabel htmlFor="location">Location</InputLabel>
+          <Input
+            id="location"
+            name="location"
             type="text"
             onChange={(e) => handleChange(e)}
           />

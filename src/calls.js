@@ -11,11 +11,19 @@ export const calls = axios.create({
   },
 });
 
+// constructor() {
+//   this.calls = axios.create({
+//     // baseURL: "http://localhost:5000",
+//     baseURL: "http://localhost:8080/api",
+//     // withCredentials: true
+//   });
+// }
+
 // players
 export const getAllSpots = async () => {
   calls
     .get(`spots/`)
-    .then((data) => console.log(data))
+    .then((response) => response)
     .catch((err) => console.log(err));
 };
 
