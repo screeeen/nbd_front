@@ -4,33 +4,14 @@ import {
   InputLabel,
   Input,
   Button,
-  TextField,
   FormLabel,
   RadioGroup,
   FormControlLabel,
   Radio,
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import { addNewSpot } from "./calls";
 
-const useStyles = makeStyles({
-  root: {
-    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-    border: 0,
-    borderRadius: 3,
-    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-    color: "white",
-    height: 48,
-    padding: "0 30px",
-  },
-});
-
 export const Form = () => {
-  //   const [name, setName] = useState("");
-  //   const [location, setLocation] = useState("");
-  //   const [description, setDescription] = useState("");
-  //   const [spotType, setSpotType] = useState("");
-  //   const [date, setDate] = useState(new Date());
   const [spot, setSpot] = useState({});
 
   const handleSubmit = (e) => {
@@ -48,21 +29,13 @@ export const Form = () => {
     console.log(spot);
   };
 
-  const classes = useStyles();
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        margin: 20,
-        padding: 20,
-      }}
-    >
-      <form style={{ width: "80%" }} onSubmit={(e) => handleSubmit(e)}>
+    <div>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <h3>add a new spots</h3>
 
         <FormControl margin="normal" fullWidth>
-          <InputLabel htmlFor="name">Name</InputLabel>
+          <InputLabel htmlFor="name">Spot name</InputLabel>
           <Input
             id="name"
             name="name"
@@ -82,7 +55,7 @@ export const Form = () => {
         </FormControl>
 
         <FormControl component="fieldset">
-          <FormLabel component="legend">SpotType</FormLabel>
+          <FormLabel component="legend">what type of spot?</FormLabel>
           <RadioGroup
             aria-label="spotType"
             name="spotType"
@@ -131,7 +104,7 @@ export const Form = () => {
         </FormControl>
 
         <FormControl margin="normal" fullWidth>
-          <InputLabel htmlFor="description">Description</InputLabel>
+          <InputLabel htmlFor="description">Spot history</InputLabel>
           <Input
             name="description"
             id="description"
@@ -140,9 +113,10 @@ export const Form = () => {
             onChange={(e) => handleChange(e)}
           />
         </FormControl>
+        <p>There you go with the spot</p>
 
         {/* <form className={classes.container} noValidate> */}
-        <TextField
+        {/* <TextField
           name="date"
           id="date"
           label="date"
@@ -153,7 +127,7 @@ export const Form = () => {
             shrink: true,
           }}
           onChange={(e) => handleChange(e)}
-        />
+        /> */}
         {/* </form> */}
 
         <Button type="submit" variant="contained" color="primary" size="medium">

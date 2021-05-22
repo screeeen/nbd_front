@@ -3,6 +3,7 @@ import "./App.css";
 import AppBar from "@material-ui/core/AppBar";
 import Form from "./Form";
 import SpotList from "./SpotList";
+import Searchbar from "./Searchbar";
 
 function App() {
   const [refresh, setRefresh] = useState(false);
@@ -13,12 +14,15 @@ function App() {
 
   return (
     <div className="App">
+      <h2>nbd archive</h2>
+      <h6>---- ◊◊◊◊ ----</h6>
+      <Searchbar />
       <AppBar color="transparent" position="static">
         {/* //button refresh */}
         <button onClick={() => setRefresh(true)}> refresh </button>
-        <h1>Spots</h1>
+        <Form />
+        <h6>some random epic spots</h6>
         <SpotList />
-        <Form></Form>
       </AppBar>
     </div>
   );
