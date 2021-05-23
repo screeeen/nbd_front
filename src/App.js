@@ -19,10 +19,10 @@ function App() {
       <Searchbar />
       <AppBar color="transparent" position="static">
         {/* //button refresh */}
-        <button onClick={() => setRefresh(true)}> refresh </button>
         <Form />
         <h6>some random epic spots</h6>
         <SpotList />
+        <button onClick={() => setRefresh(true)}> refresh </button>
       </AppBar>
     </div>
   );

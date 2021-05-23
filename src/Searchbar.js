@@ -17,14 +17,14 @@ export default function Searchbar() {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    console.log("handleSearch", search);
     calls
       .get(`spots/name/${search}`)
       .then((response) => {
         const { data } = response;
-        console.log(response, data);
+        console.log("response", response);
       })
       .catch((err) => console.log(err));
-    console.log("handleSearch");
   };
 
   //   const handleChange = (e) => {
@@ -49,6 +49,7 @@ export default function Searchbar() {
         inputProps={{ "aria-label": "description" }}
         onChange={(e) => setSearch(e.target.value)}
       />
+      <button type="submit">Search</button>
     </form>
   );
 }
