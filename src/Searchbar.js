@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
 import { calls } from "./calls";
+import store from "./model/store";
+import { setFoundSpot } from "./actions/SpotActions";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -13,29 +16,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Searchbar() {
   const [search, setSearch] = useState();
+  // const [found, setFound] = useState();
   const classes = useStyles();
+
+  // useEffect(() => {}, [found]);
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log("handleSearch", search);
+
     calls
       .get(`spots/name/${search}`)
       .then((response) => {
-        const { data } = response;
         console.log("response", response);
+        store.dispatch(setFoundSpot(response.data));
       })
       .catch((err) => console.log(err));
   };
-
-  //   const handleChange = (e) => {
-  //     setValue(e.target.value);
-  //     // const { name, value } = event.target;
-  //     // const item = { [name]: value };
-  //     // const newSpot = { ...spot, ...item };
-  //     // console.log(newSpot);
-  //     // setSpot(newSpot);
-  //     // console.log(spot);
-  //   };
 
   return (
     <form
@@ -45,7 +41,8 @@ export default function Searchbar() {
       autoComplete="off"
     >
       <Input
-        defaultValue="Search"
+        defaultValue={search}
+        placeholder="Search"
         inputProps={{ "aria-label": "description" }}
         onChange={(e) => setSearch(e.target.value)}
       />
