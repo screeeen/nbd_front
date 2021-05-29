@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import { addNewSpot } from "./calls";
 
-export const Form = () => {
+export const SpotForm = () => {
   const [spot, setSpot] = useState({});
 
   const handleSubmit = (e) => {
@@ -138,4 +138,4 @@ export const Form = () => {
   );
 };
 
-export default Form;
+export default SpotForm;

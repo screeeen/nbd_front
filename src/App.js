@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import AppBar from "@material-ui/core/AppBar";
-import Form from "./Form";
+import SpotForm from "./SpotForm";
 import SpotList from "./SpotList";
 import Searchbar from "./Searchbar";
 // import store from "./model/store";
@@ -19,7 +19,7 @@ function App() {
       <SpotList />
       <AppBar color="transparent" position="static">
         {/* //button refresh */}
-        <Form />
+        <SpotForm />
       </AppBar>
     </div>
   );
