@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const SpotCard = ({ spot }) => {
   const { name, location, spotType, description } = spot;
 
@@ -10,15 +12,15 @@ export const SpotCard = ({ spot }) => {
     width: "90%",
   };
 
+  const openCard = () => console.log("hello again"); //history.push("/name/:name");
+
   return (
-    <>
-      <div style={divStyle}>
-        <h3 style={pStyle}>{name}</h3>
-        <h5 style={pStyle}>{location}</h5>
-        <p style={pBlue}>{spotType}</p>
-        <p style={pStyle}>{description}</p>
-      </div>
-    </>
+    <Link to={`spots/name/${name}`} style={divStyle}>
+      <h3 style={pStyle}>{name}</h3>
+      <h5 style={pStyle}>{location}</h5>
+      <p style={pBlue}>{spotType}</p>
+      <p style={pStyle}>{description}</p>
+    </Link>
   );
 };
 
