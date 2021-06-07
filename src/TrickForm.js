@@ -4,18 +4,16 @@ import {
   InputLabel,
   Input,
   Button,
-  FormLabel,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
+  TextField,
 } from "@material-ui/core";
+import { addNewTrick } from "./calls";
 
-export const TrickForm = () => {
-  const [trick, setTrick] = useState({});
+export const TrickForm = ({ spotName }) => {
+  const [trick, setTrick] = useState({ spotName: spotName });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // addNewSpot(spot);
+    addNewTrick(trick);
   };
 
   const handleChange = (event) => {
@@ -27,8 +25,15 @@ export const TrickForm = () => {
     console.log(trick);
   };
 
+  const divStyle = {
+    border: "1px solid lightblue",
+    borderRadius: "5px",
+    margin: "10px",
+    width: "90%",
+  };
+
   return (
-    <div>
+    <div style={divStyle}>
       <form onSubmit={(e) => handleSubmit(e)}>
         <h3>add a new trick</h3>
         <FormControl margin="normal" fullWidth>
@@ -41,7 +46,7 @@ export const TrickForm = () => {
           />
         </FormControl>
         <FormControl margin="normal" fullWidth>
-          <InputLabel htmlFor="skater">Trick name</InputLabel>
+          <InputLabel htmlFor="skater">Skater</InputLabel>
           <Input
             id="skater"
             skater="skater"
@@ -50,27 +55,24 @@ export const TrickForm = () => {
           />
         </FormControl>
 
-        {/* //name,skater,year,referenceURL */}
-
-        {/* <form className={classes.container} noValidate> */}
         <TextField
           name="date"
           id="date"
           label="date"
           type="date"
           defaultValue="2017-05-24"
-          className={classes.textField}
+          // className={classes.textField}
           InputLabelProps={{
             shrink: true,
           }}
           onChange={(e) => handleChange(e)}
         />
-        {/* </form> */}
+
         <FormControl margin="normal" fullWidth>
-          <InputLabel htmlFor="referenceURL">Trick name</InputLabel>
+          <InputLabel htmlFor="referenceURL">reference</InputLabel>
           <Input
             id="referenceURL"
-            referenceURL="referenceURL"
+            referenceurl="referenceURL"
             type="text"
             onChange={(e) => handleChange(e)}
           />

@@ -33,3 +33,10 @@ export const addNewSpot = async (newSpot) => {
     .then((data) => console.log("sent", data))
     .catch((err) => console.log(err));
 };
+
+export const addNewTrick = async (newTrick) => {
+  calls
+    .post(`spots/`, newTrick)
+    .then((data) => console.log("sent", data))
+    .catch((err) => console.log(err));
+};

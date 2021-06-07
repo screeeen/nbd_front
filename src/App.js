@@ -4,9 +4,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Splash from "./Splash";
 
 function App() {
-  // const { spots } = useSelector((state) => state);
-  // const { spots } = store.getState((state) => state);
-
   return (
     <BrowserRouter>
       <div className="App">
@@ -14,7 +11,7 @@ function App() {
         <h6>---- ◊◊◊◊ ----</h6>
         <Switch>
           <Route exact path="/" component={Splash} />
-          <Route exact path="/" component={Splash} />
+          {/* <Route path={"/:name"} component={SpotCard} /> */}
         </Switch>
       </div>
     </BrowserRouter>
