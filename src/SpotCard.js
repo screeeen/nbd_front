@@ -1,7 +1,7 @@
 import TrickForm from "./TrickForm";
 
 export const SpotCard = ({ spot }) => {
-  const { name, location, spotType, description } = spot;
+  const { name, location, spotType, description, _id, tricks } = spot;
 
   const pStyle = { textAlign: "left", paddingLeft: "20px" };
   const pBlue = { textAlign: "left", paddingLeft: "20px", color: "blue" };
@@ -20,7 +20,17 @@ export const SpotCard = ({ spot }) => {
       <h5 style={pStyle}>{location}</h5>
       <p style={pBlue}>{spotType}</p>
       <p style={pStyle}>{description}</p>
-      <TrickForm spotName={name} />
+      <h5>Tricks Archive</h5>
+      {tricks.map((trick, i) => {
+        return (
+          <div key={trick.name + i}>
+            <p>{trick.name}</p>
+            <p>{trick.skater}</p>
+            <p>{trick.date}</p>
+          </div>
+        );
+      })}
+      <TrickForm spot_Id={_id} />
     </div>
   );
 };

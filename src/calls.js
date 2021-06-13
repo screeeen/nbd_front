@@ -36,7 +36,7 @@ export const addNewSpot = async (newSpot) => {
 
 export const addNewTrick = async (newTrick) => {
   calls
-    .post(`spots/`, newTrick)
+    .post(`tricks/`, newTrick)
     .then((data) => console.log("sent", data))
     .catch((err) => console.log(err));
 };

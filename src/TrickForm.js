@@ -8,11 +8,13 @@ import {
 } from "@material-ui/core";
 import { addNewTrick } from "./calls";
 
-export const TrickForm = ({ spotName }) => {
-  const [trick, setTrick] = useState({ spotName: spotName });
+export const TrickForm = ({ spot_Id }) => {
+  const [trick, setTrick] = useState({ spot_Id });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(trick);
+
     addNewTrick(trick);
   };
 
@@ -20,9 +22,7 @@ export const TrickForm = ({ spotName }) => {
     const { name, value } = event.target;
     const item = { [name]: value };
     const newTrick = { ...trick, ...item };
-    console.log(newTrick);
     setTrick(newTrick);
-    console.log(trick);
   };
 
   const divStyle = {
@@ -39,8 +39,8 @@ export const TrickForm = ({ spotName }) => {
         <FormControl margin="normal" fullWidth>
           <InputLabel htmlFor="name">Trick name</InputLabel>
           <Input
-            id="name"
             name="name"
+            id="name"
             type="text"
             onChange={(e) => handleChange(e)}
           />
@@ -48,8 +48,8 @@ export const TrickForm = ({ spotName }) => {
         <FormControl margin="normal" fullWidth>
           <InputLabel htmlFor="skater">Skater</InputLabel>
           <Input
+            name="skater"
             id="skater"
-            skater="skater"
             type="text"
             onChange={(e) => handleChange(e)}
           />
@@ -71,8 +71,9 @@ export const TrickForm = ({ spotName }) => {
         <FormControl margin="normal" fullWidth>
           <InputLabel htmlFor="referenceURL">reference</InputLabel>
           <Input
+            name="referenceURL"
+            label="referenceURL"
             id="referenceURL"
-            referenceurl="referenceURL"
             type="text"
             onChange={(e) => handleChange(e)}
           />

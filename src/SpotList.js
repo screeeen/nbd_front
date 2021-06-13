@@ -1,13 +1,9 @@
 import React from "react";
-// import { calls } from "./calls";
 import SpotCard from "./SpotCard";
-// import store from "./model/store";
 import { useSelector } from "react-redux";
 
 export const SpotList = () => {
-  // const { spots } = store.getState((state) => state);
   const { spots } = useSelector((state) => state);
-  console.log("store spots", spots);
 
   return (
     <>
